@@ -6,7 +6,7 @@ import 'package:untitled/start.dart';
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: 'address',
+    initialRoute: 'start',
     routes: {
       'register': (context) => const MyRegister(),
       'login': (context) => const MyLogin(),
