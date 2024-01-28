@@ -1,19 +1,9 @@
 import 'package:flutter/material.dart';
 
-class ECommerceApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'E-commerce App',
-      home: HomePage(),
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-    );
-  }
+void main() {
+  runApp(MyApp());
 }
+
 class Product {
   final String name;
   final String condition;
@@ -48,186 +38,23 @@ class SimilarProduct {
   });
 }
 
-class HomePage extends StatelessWidget {
-  final List<Map<String, dynamic>> mobiles = [
-    {
-      'name': 'iPhone 13',
-      'image':
-      'https://assets.sangeethamobiles.com/product_img/8538/1667547711_A7D.jpg',
-      'price': '\₹54,900',
-    },
-    {
-      'name': 'Samsung S24 Ultra 5G ',
-      'image':
-      'https://www.reliancedigital.in/medias/Samsung-S-Series-Ultra-Mobile-Phone-494352159-i-1-1200Wx1200H?context=bWFzdGVyfGltYWdlc3w2NTk3OXxpbWFnZS9qcGVnfGltYWdlcy9oMzEvaGY0LzEwMTAyODc2NzY2MjM4LmpwZ3wwMmQyZmViZTk1YWNlNzU4YzZiNjAzN2VjNzFjOTM1NDEzYTQ1MDVhMmQ0NmExYTA2OGM1YzQ2MDM1NTJjYzY0',
-      'price': '\₹1,39,999',
-    },
-    {
-      'name': 'Google Pixel 6 Pro 5G',
-      'image':
-      'https://m.media-amazon.com/images/I/71FpXTBHDnL._SL1500_.jpg',
-      'price': '\₹39,599',
-    },
-    {
-      'name': 'OnePlus 9 Pro',
-      'image':
-      'https://www.reliancedigital.in/medias/OnePlus-9-Pro-SmartPhones-491947280-i-1-1200Wx1200H?context=bWFzdGVyfGltYWdlc3wyOTI4MDB8aW1hZ2UvanBlZ3xpbWFnZXMvaGFhL2g4Zi85ODY5MTEzNzUzNjMwLmpwZ3xkZTI2MDIxYjUwNmEyY2E2YjQwOWFmNTQ3Y2Y4YjdiY2YyYjVmM2I3ZmQxZDZmOWQ2MjMzMWQ0NTU3YzQ1M2M0',
-      'price': '\₹46,316',
-    },
-    {
-      'name': 'OnePlus Nord CE 3 5G',
-      'image':
-      'https://m.media-amazon.com/images/I/41TmlehQnaL._SX300_SY300_QL70_FMwebp_.jpg',
-      'price': '\₹27,999',
-    },
-    {
-      'name': 'Oppo A78',
-      'image':
-      'https://m.media-amazon.com/images/I/510YrcEw3-L._SX300_SY300_QL70_FMwebp_.jpg',
-      'price': '\₹15,499',
-    },
-    {
-      'name': 'Apple iPhone 15 Pro Max',
-      'image':
-      'https://m.media-amazon.com/images/I/41zb7hwFUmL._SY445_SX342_QL70_FMwebp_.jpg',
-      'price': '\₹1,56,900',
-    },
-    {
-      'name': 'Apple iPhone 14 ',
-      'image':
-      'https://m.media-amazon.com/images/I/611mRs-imxL._SL1500_.jpg',
-      'price': '\₹65,999',
-    },
-    // Add more mobiles as needed
-  ];
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Hello-Mobiles'),
-      ),
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            expandedHeight: 200.0,
-            floating: false,
-            pinned: true,
-            automaticallyImplyLeading: false, // Remove the back button
-            flexibleSpace: FlexibleSpaceBar(
-              background: Image.network(
-                'https://img.freepik.com/free-vector/best-deal-70-percent-off-discount-offer-banner_91128-1599.jpg',
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          SliverGrid(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 8.0,
-              mainAxisSpacing: 8.0,
-            ),
-            delegate: SliverChildBuilderDelegate(
-                  (BuildContext context, int index) {
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProductDetailPage(),
-                      ),
-                    );
-                  },
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                    elevation: 3,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(12.0),
-                            child: Image.network(
-                              mobiles[index]['image'],
-                              width: 80,
-                              height: 80,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          SizedBox(height: 8.0),
-                          Text(
-                            mobiles[index]['name'],
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                            ),
-                          ),
-                          SizedBox(height: 4.0),
-                          Text(
-                            'Price: ${mobiles[index]['price']}',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.blue,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                );
-              },
-              childCount: mobiles.length,
-            ),
-          ),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.phone_android),
-            label: 'Mobiles',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.login),
-            label: 'Login',
-          ),
-        ],
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.grey,
-        onTap: (int index) {
-          if (index == 1) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => ProductDetailPage()),
-            );
-          }
-        },
-      ),
+    return MaterialApp(
+      home: ProductDetailPage(),
     );
   }
 }
 
 class ProductDetailPage extends StatelessWidget {
   final Product product = Product(
-    name: 'iPhone 14 Pro Max',
+    name: 'iPhone 15 Pro Max',
     condition: 'Brand new',
     material: 'Plastic',
     category: 'Electronics, gadgets',
     itemNumber: 23421,
-    price: 2127999,
+    price: 156900,
     reviews: 32,
     soldQuantity: 154,
     rating: 4.5,
@@ -287,7 +114,8 @@ class ProductDetailPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Image.network(
-                'https://static.toiimg.com/photo/80635304/Apple-iPhone-14-Pro-Max-512GB-6GB-RAM.jpg'),
+              'https://m.media-amazon.com/images/I/41zb7hwFUmL._SY445_SX342_QL70_FMwebp_.jpg',
+            ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
@@ -459,8 +287,4 @@ class SimilarProductCard extends StatelessWidget {
       ),
     );
   }
-}
-
-void main() {
-  runApp(ECommerceApp());
 }
