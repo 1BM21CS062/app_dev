@@ -42,12 +42,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ProductDetailPage(),
+      home: ProductDetailPage4(),
     );
   }
 }
 
-class ProductDetailPage extends StatelessWidget {
+class ProductDetailPage4 extends StatelessWidget {
   final Product product = Product(
     name: 'OnePlus 9 pro',
     condition: 'Brand new',

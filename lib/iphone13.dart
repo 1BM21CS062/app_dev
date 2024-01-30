@@ -42,12 +42,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ProductDetailPage(),
+      home: ProductDetailPage1(),
     );
   }
 }
 
-class ProductDetailPage extends StatelessWidget {
+class ProductDetailPage1 extends StatelessWidget {
   final Product product = Product(
     name: 'iPhone 13',
     condition: 'Brand new',
@@ -76,22 +76,22 @@ class ProductDetailPage extends StatelessWidget {
     SimilarProduct(
       productName: 'Google Pixel 6 Pro 5G',
       imageUrl:
-      'https://m.media-amazon.com/images/I/71FpXTBHDnL._SL1500_.jpg',
+      'https://m.media-amazon.com/images/I/71FpXTBHDnL.SL1500.jpg',
     ),
     SimilarProduct(
       productName: 'Apple iPhone 15 Pro Max',
       imageUrl:
-      'https://m.media-amazon.com/images/I/41zb7hwFUmL._SY445_SX342_QL70_FMwebp_.jpg',
+      'https://m.media-amazon.com/images/I/41zb7hwFUmL.SY445_SX342_QL70_FMwebp.jpg',
     ),
     SimilarProduct(
       productName: 'OnePlus Nord CE 3 5G',
       imageUrl:
-      'https://m.media-amazon.com/images/I/41TmlehQnaL._SX300_SY300_QL70_FMwebp_.jpg',
+      'https://m.media-amazon.com/images/I/41TmlehQnaL.SX300_SY300_QL70_FMwebp.jpg',
     ),
     SimilarProduct(
       productName: 'Oppo A78',
       imageUrl:
-      'https://m.media-amazon.com/images/I/510YrcEw3-L._SX300_SY300_QL70_FMwebp_.jpg',
+      'https://m.media-amazon.com/images/I/510YrcEw3-L.SX300_SY300_QL70_FMwebp.jpg',
 
     ),
     // Add more SimilarProduct instances as needed
@@ -114,7 +114,7 @@ class ProductDetailPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Image.network(
-                'https://assets.sangeethamobiles.com/product_img/8538/1667547711_A7D.jpg',
+              'https://assets.sangeethamobiles.com/product_img/8538/1667547711_A7D.jpg',
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),

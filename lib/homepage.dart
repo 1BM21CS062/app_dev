@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'iphone13.dart';
+import 'iphone14.dart';
+import 'samsungs24ultra5g.dart';
+import 'googlepixel6pro5g.dart';
+import 'oneplus9pro.dart';
+import 'oneplusnordce35g.dart';
+import 'iphone15promax.dart';
+import 'oppoa78.dart';
 
 class ECommerceApp extends StatelessWidget {
   @override
@@ -65,7 +73,7 @@ class HomePage extends StatelessWidget {
     {
       'name': 'Google Pixel 6 Pro 5G',
       'image':
-      'https://m.media-amazon.com/images/I/71FpXTBHDnL._SL1500_.jpg',
+      'https://m.media-amazon.com/images/I/71FpXTBHDnL.SL1500.jpg',
       'price': '\₹39,599',
     },
     {
@@ -77,25 +85,25 @@ class HomePage extends StatelessWidget {
     {
       'name': 'OnePlus Nord CE 3 5G',
       'image':
-      'https://m.media-amazon.com/images/I/41TmlehQnaL._SX300_SY300_QL70_FMwebp_.jpg',
+      'https://m.media-amazon.com/images/I/41TmlehQnaL.SX300_SY300_QL70_FMwebp.jpg',
       'price': '\₹27,999',
     },
     {
       'name': 'Oppo A78',
       'image':
-      'https://m.media-amazon.com/images/I/510YrcEw3-L._SX300_SY300_QL70_FMwebp_.jpg',
+      'https://m.media-amazon.com/images/I/510YrcEw3-L.SX300_SY300_QL70_FMwebp.jpg',
       'price': '\₹15,499',
     },
     {
       'name': 'Apple iPhone 15 Pro Max',
       'image':
-      'https://m.media-amazon.com/images/I/41zb7hwFUmL._SY445_SX342_QL70_FMwebp_.jpg',
+      'https://m.media-amazon.com/images/I/41zb7hwFUmL.SY445_SX342_QL70_FMwebp.jpg',
       'price': '\₹1,56,900',
     },
     {
       'name': 'Apple iPhone 14 ',
       'image':
-      'https://m.media-amazon.com/images/I/611mRs-imxL._SL1500_.jpg',
+      'https://m.media-amazon.com/images/I/611mRs-imxL.SL1500.jpg',
       'price': '\₹65,999',
     },
     // Add more mobiles as needed
@@ -130,14 +138,82 @@ class HomePage extends StatelessWidget {
             delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index) {
                 return GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProductDetailPage(),
-                      ),
-                    );
-                  },
+                    onTap: () {
+                      // Navigate to the respective product details page
+                      if (index == 0) {
+                        // iPhone 13 tapped
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProductDetailPage1(),
+                          ),
+                        );
+                      } else if (index == 1) {
+                        // iPhone 14 tapped
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProductDetailPage2(),
+                          ),
+                        );
+                      }
+                      else if (index == 2) {
+                        // iPhone 14 tapped
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProductDetailPage3(),
+                          ),
+                        );
+                      }
+                      else if (index == 3) {
+                        // iPhone 14 tapped
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProductDetailPage4(),
+                          ),
+                        );
+                      }
+                      else if (index == 4) {
+                        // iPhone 14 tapped
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProductDetailPage5(),
+                          ),
+                        );
+                      }
+                      else if (index == 5) {
+                        // iPhone 14 tapped
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProductDetailPage6(),
+                          ),
+                        );
+                      }
+                      else if (index == 6) {
+                        // iPhone 14 tapped
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProductDetailPage7(),
+                          ),
+                        );
+                      }
+                      else if (index == 7) {
+                        // iPhone 14 tapped
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProductDetailPage8(),
+                          ),
+                        );
+                      }
+
+                      // Add similar blocks for other products as needed
+                    },
                   child: Card(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.0),
@@ -249,22 +325,22 @@ class ProductDetailPage extends StatelessWidget {
     SimilarProduct(
       productName: 'Google Pixel 6 Pro 5G',
       imageUrl:
-      'https://m.media-amazon.com/images/I/71FpXTBHDnL._SL1500_.jpg',
+      'https://m.media-amazon.com/images/I/71FpXTBHDnL.SL1500.jpg',
     ),
     SimilarProduct(
       productName: 'Apple iPhone 15 Pro Max',
       imageUrl:
-      'https://m.media-amazon.com/images/I/41zb7hwFUmL._SY445_SX342_QL70_FMwebp_.jpg',
+      'https://m.media-amazon.com/images/I/41zb7hwFUmL.SY445_SX342_QL70_FMwebp.jpg',
     ),
     SimilarProduct(
       productName: 'OnePlus Nord CE 3 5G',
       imageUrl:
-      'https://m.media-amazon.com/images/I/41TmlehQnaL._SX300_SY300_QL70_FMwebp_.jpg',
+      'https://m.media-amazon.com/images/I/41TmlehQnaL.SX300_SY300_QL70_FMwebp.jpg',
     ),
     SimilarProduct(
       productName: 'Oppo A78',
       imageUrl:
-      'https://m.media-amazon.com/images/I/510YrcEw3-L._SX300_SY300_QL70_FMwebp_.jpg',
+      'https://m.media-amazon.com/images/I/510YrcEw3-L.SX300_SY300_QL70_FMwebp.jpg',
 
     ),
     // Add more SimilarProduct instances as needed
