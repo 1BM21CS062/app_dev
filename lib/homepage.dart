@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/cart.dart';
+import 'package:untitled/mobilelist.dart';
+import 'package:untitled/profile.dart';
 import 'iphone13.dart';
 import 'iphone14.dart';
 import 'samsungs24ultra5g.dart';
@@ -287,7 +290,19 @@ class HomePage extends StatelessWidget {
           if (index == 1) {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => ProductDetailPage()),
+              MaterialPageRoute(builder: (context) => MobilesPage()),
+            );
+          }
+          if (index == 3) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProfilePage()),
+            );
+          }
+          if (index == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Cart()),
             );
           }
         },

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/homepage.dart';
+import 'package:untitled/mobilelist.dart';
+import 'package:untitled/profile.dart';
 import 'payment.dart';
 
 class Product {
@@ -21,28 +24,26 @@ class ShoppingCart {
   List<Product> products = [];
 }
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
+class Cart extends StatelessWidget {
   final ShoppingCart shoppingCart = ShoppingCart();
 
-  MyApp() {
+  Cart() {
     shoppingCart.products = [
       Product(
         name: 'Sample Product 1',
         details: 'Product details 1',
         quantity: 2,
         price: 19.99,
-        imageUrl: 'https://static.toiimg.com/photo/80635304/Apple-iPhone-14-Pro-Max-512GB-6GB-RAM.jpg',
+        imageUrl:
+        'https://static.toiimg.com/photo/80635304/Apple-iPhone-14-Pro-Max-512GB-6GB-RAM.jpg',
       ),
       Product(
         name: 'Sample Product 2',
         details: 'Product details 2',
         quantity: 1,
         price: 29.99,
-        imageUrl: 'https://static.toiimg.com/photo/80635304/Apple-iPhone-14-Pro-Max-512GB-6GB-RAM.jpg',
+        imageUrl:
+        'https://static.toiimg.com/photo/80635304/Apple-iPhone-14-Pro-Max-512GB-6GB-RAM.jpg',
       ),
     ];
   }
@@ -124,7 +125,7 @@ class _MyBagPageState extends State<MyBagPage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
-            backgroundColor: null, // Remove the blue color for home button
+            backgroundColor: null, // Remove the blue color for the home button
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.phone_android),
@@ -143,7 +144,24 @@ class _MyBagPageState extends State<MyBagPage> {
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey,
         onTap: (int index) {
-          // Handle bottom navigation item taps as needed
+          if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MobilesPage()),
+            );
+          }
+          if (index == 3) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProfilePage()),
+            );
+          }
+          if (index == 0) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ECommerceApp()),
+            );
+          }
         },
       ),
     );
@@ -164,6 +182,14 @@ class ProductItem extends StatelessWidget {
         height: 60,
         width: 60,
         fit: BoxFit.cover,
+        errorBuilder: (context, error, stackTrace) {
+          return Image.asset(
+            'assets/placeholder_image.jpg', // Replace with the path to your placeholder image
+            height: 60,
+            width: 60,
+            fit: BoxFit.cover,
+          );
+        },
       ),
       title: Text(product.name),
       subtitle: Column(

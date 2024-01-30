@@ -1,5 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:untitled/cart.dart';
+import 'package:untitled/homepage.dart';
+import 'package:untitled/profile.dart';
 import 'main.dart';
 
 class MobilesPage extends StatelessWidget {
@@ -67,7 +70,24 @@ class MobilesPage extends StatelessWidget {
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey,
         onTap: (int index) {
-          // Handle bottom navigation item taps as needed
+          if (index == 0) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ECommerceApp()),
+            );
+          }
+          if (index == 3) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProfilePage()),
+            );
+          }
+          if (index == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Cart()),
+            );
+          }
         },
       ),
     );
