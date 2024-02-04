@@ -20,6 +20,22 @@ class Product {
   });
 }
 
+class CartProvider extends ChangeNotifier {
+  List<Product> _products = [];
+
+  List<Product> get products => _products;
+
+  void addToCart(Product product) {
+    _products.add(product);
+    notifyListeners();
+  }
+
+  void removeFromCart(Product product) {
+    _products.remove(product);
+    notifyListeners();
+  }
+}
+
 class ShoppingCart {
   List<Product> products = [];
 }
