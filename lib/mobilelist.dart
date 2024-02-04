@@ -39,7 +39,7 @@ class MobilesPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Mobiles'),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.white70,
       ),
       body: ListView.builder(
         itemCount: mobiles.length,
@@ -48,6 +48,7 @@ class MobilesPage extends StatelessWidget {
         },
       ),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 1, // Set the index of the "Profile" tab
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -56,7 +57,6 @@ class MobilesPage extends StatelessWidget {
           BottomNavigationBarItem(
             icon: Icon(Icons.phone_android),
             label: 'Mobiles',
-            backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_cart),
@@ -64,7 +64,7 @@ class MobilesPage extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.login),
-            label: 'Login',
+            label: 'Profile',
           ),
         ],
         selectedItemColor: Colors.blue,
@@ -73,7 +73,7 @@ class MobilesPage extends StatelessWidget {
           if (index == 0) {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => ECommerceApp()),
+              MaterialPageRoute(builder: (context) => HomePage()),
             );
           }
           if (index == 3) {

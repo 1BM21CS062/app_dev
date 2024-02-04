@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'cart.dart';
+import 'homepage.dart';
+import 'mobilelist.dart';
+import 'profile.dart';
+
 class PaymentPage extends StatefulWidget {
   @override
   _PaymentPageState createState() => _PaymentPageState();
@@ -166,32 +171,52 @@ class _PaymentPageState extends State<PaymentPage> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 3, // Set the index of the "Payment" tab
+        currentIndex: 2, // Set the index of the "Profile" tab
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
-            backgroundColor: null, // Remove the blue color for home button
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.phone_android),
             label: 'Mobiles',
-            backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_cart),
             label: 'Cart',
           ),
           BottomNavigationBarItem(
-            icon:
-                Icon(Icons.payment, color: Colors.blue), // Colored payment icon
-            label: 'Payment',
+            icon: Icon(Icons.login),
+            label: 'Profile',
           ),
         ],
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey,
         onTap: (int index) {
-          // Handle bottom navigation item taps as needed
+          if (index == 0) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          }
+          if (index == 3) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProfilePage()),
+            );
+          }
+          if (index == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Cart()),
+            );
+          }
+          if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MobilesPage()),
+            );
+          }
         },
       ),
     );

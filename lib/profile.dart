@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/homepage.dart';
-
-
+import 'cart.dart';
+import 'homepage.dart';
+import 'login.dart';
+import 'mobilelist.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -12,8 +13,9 @@ class ProfilePage extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.push(context,
-            MaterialPageRoute(builder: (context)=> ECommerceApp())
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ECommerceApp()),
             );
           },
         ),
@@ -25,7 +27,8 @@ class ProfilePage extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 60,
-              backgroundImage: AssetImage('assets/profile_image.jpg'),
+              backgroundImage: NetworkImage(
+                  'https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_0.jpg'),
             ),
             SizedBox(height: 16.0),
             Text(
@@ -58,6 +61,78 @@ class ProfilePage extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 3, // Set the index of the "Profile" tab
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.phone_android),
+            label: 'Mobiles',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: 'Cart',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.login),
+            label: 'Profile',
+          ),
+        ],
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.grey,
+        onTap: (int index) {
+          if (index == 0) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          }
+          if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MobilesPage()),
+            );
+          }
+          if (index == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Cart()),
+            );
+          }
+          if (index == 3) {
+            // Do nothing, already on the Profile page
+          }
+        },
+      ),
+      floatingActionButton: Container(
+        width: double.infinity,
+        margin: EdgeInsets.symmetric(horizontal: 16.0),
+        child: FloatingActionButton(
+          onPressed: () {
+            // Handle Logout button click
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => MyLogin()),
+                  (route) => false,
+            );
+          },
+          backgroundColor: Colors.red,
+          child: Center(
+            child: Text(
+              'Logout',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

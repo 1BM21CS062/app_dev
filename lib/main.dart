@@ -5,7 +5,10 @@ import 'package:untitled/register.dart';
 import 'package:untitled/start.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(
+
+      MaterialApp(
+
     initialRoute: 'start',
     routes: {
       'register': (context) => const MyRegister(),

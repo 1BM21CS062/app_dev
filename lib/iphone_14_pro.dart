@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/samsungs24ultra5g.dart';
+
+import 'googlepixel6pro5g.dart';
+import 'iphone13.dart';
+import 'iphone14.dart';
+import 'iphone15promax.dart';
+import 'oneplusnordce35g.dart';
+import 'oppoa78.dart';
 
 void main() {
   runApp(MyApp());
@@ -198,15 +206,20 @@ class ProductDetailPage extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: similarProducts.map((product) {
+                        children: similarProducts.asMap().entries.map((entry) {
+                          int index = entry.key;
+                          SimilarProduct product = entry.value;
+
                           return SimilarProductCard(
                             productName: product.productName,
                             imageUrl: product.imageUrl,
+                            index: index,
                           );
                         }).toList(),
                       ),
                     ),
                   ),
+
                 ],
               ),
             ),
@@ -250,35 +263,104 @@ class ProductDetailPage extends StatelessWidget {
 class SimilarProductCard extends StatelessWidget {
   final String productName;
   final String imageUrl;
+  final int index;
 
   SimilarProductCard({
     required this.productName,
     required this.imageUrl,
+    required this.index,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 120, // Set a fixed width for the card
-      child: Card(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 80, // Set a fixed height for the image
-              child: Image.network(
-                imageUrl,
-                fit: BoxFit.cover, // Adjust the fit property
+    return GestureDetector(
+      onTap: () {
+        // Navigate to different pages based on the product name
+        switch (productName) {
+          case 'iPhone 13':
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProductDetailPage1(),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                productName,
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+            );
+            break;
+          case 'iPhone 14':
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProductDetailPage8(),
               ),
-            ),
-          ],
+            );
+            break;
+          case 'Samsung S24 Ultra 5G':
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProductDetailPage2(),
+              ),
+            );
+            break;
+          case 'Google Pixel 6 Pro 5G':
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProductDetailPage3(),
+              ),
+            );
+            break;
+          case 'Apple iPhone 15 Pro Max':
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProductDetailPage7(),
+              ),
+            );
+            break;
+          case 'OnePlus Nord CE 3 5G':
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProductDetailPage5(),
+              ),
+            );
+            break;
+          case 'Oppo A78':
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProductDetailPage6(),
+              ),
+            );
+            break;
+        // Add more cases for other products as needed
+          default:
+          // Handle the default case if necessary
+            break;
+        }
+      },
+      child: Container(
+        width: 120,
+        child: Card(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: 80,
+                child: Image.network(
+                  imageUrl,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  productName,
+                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
