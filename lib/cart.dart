@@ -96,7 +96,10 @@ class _MyBagPageState extends State<MyBagPage> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => ECommerceApp()),
+            );
           },
         ),
         title: Row(
