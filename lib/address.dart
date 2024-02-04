@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/payment.dart';
 
+import 'cart.dart';
+import 'homepage.dart';
+import 'mobilelist.dart';
+import 'profile.dart';
+
 class AddressEntryPage extends StatefulWidget {
   const AddressEntryPage({super.key});
 
@@ -144,6 +149,55 @@ class _AddressEntryPageState extends State<AddressEntryPage> {
             ),
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 2, // Set the index of the "Profile" tab
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.phone_android),
+            label: 'Mobiles',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: 'Cart',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.grey,
+        onTap: (int index) {
+          if (index == 0) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          }
+          if (index == 3) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProfilePage()),
+            );
+          }
+          if (index == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Cart()),
+            );
+          }
+          if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MobilesPage()),
+            );
+          }
+        },
       ),
     );
   }

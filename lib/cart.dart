@@ -157,7 +157,7 @@ class _MyBagPageState extends State<MyBagPage> {
             label: 'Cart',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.login),
+            icon: Icon(Icons.person),
             label: 'Login',
           ),
         ],

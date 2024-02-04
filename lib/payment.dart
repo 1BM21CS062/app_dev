@@ -186,7 +186,7 @@ class _PaymentPageState extends State<PaymentPage> {
             label: 'Cart',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.login),
+            icon: Icon(Icons.person),
             label: 'Profile',
           ),
         ],

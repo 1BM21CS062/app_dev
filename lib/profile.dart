@@ -77,7 +77,7 @@ class ProfilePage extends StatelessWidget {
             label: 'Cart',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.login),
+            icon: Icon(Icons.person),
             label: 'Profile',
           ),
         ],
