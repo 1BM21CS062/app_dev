@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:untitled/homepage.dart';
 import 'package:untitled/mobilelist.dart';
 import 'package:untitled/profile.dart';
+import 'address.dart';
 import 'payment.dart';
 
 class Product {
@@ -85,7 +86,7 @@ class _MyBagPageState extends State<MyBagPage> {
   void _handleCheckout() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => PaymentPage()),
+      MaterialPageRoute(builder: (context) => AddressEntryPage()),
     );
   }
 
